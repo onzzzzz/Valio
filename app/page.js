@@ -7,6 +7,7 @@ import Map from "@/components/Map";
 import Navbar from "@/components/Navbar";
 import Payments from "@/components/Payments";
 import Stats from "@/components/Stats";
+import DivOne from "@/components/DivOne";
 import { useState } from "react";
 
 
@@ -22,6 +23,65 @@ export default function Home() {
   return (
     <main >
       <Navbar/>
+      <ul className="grid grid-cols-8 grid-rows-2 grid-flow-row">
+      <li className={`rounded-lg bg-yellow-500
+          ${isHoveringActivity?"col-span-4 row-span-2":
+            (isHoveringMap?"col-span-1 row-span-2":"col-span-2 row-span-2")}`}>
+            <div className="h-24"></div>
+        </li>
+        <li className={`rounded-lg bg-orange-600
+          ${isHoveringFooter?"col-span-1":
+          (isHoveringActivity?"col-span-2":
+            (isHoveringStats?"col-span-4 row-span-2":
+              (isHoveringMap?"col-span-1":
+              (isHoveringBonus?"col-span-2":"col-span-4"))))}`}>
+              <div className="h-24"></div>
+        </li>
+        <li className={`rounded-lg bg-blue-600
+          ${isHoveringFooter?"col-span-1":
+            (isHoveringStats?"col-span-1":
+              (isHoveringBonus?"col-span-4":"col-span-2"))}`}>
+            <div className="h-24"></div>
+        </li>
+        <li className={`rounded-lg bg-red-600
+          ${isHoveringFooter?"col-span-1":
+            (isHoveringStats?"col-span-1":
+              (isHoveringMap?"col-span-1":
+              (isHoveringPayments?"col-span-4":"col-span-2")))}`}>
+            <div className="h-24"></div>
+        </li>
+        <li className={`rounded-lg bg-green-600
+          ${isHoveringFooter?"col-span-1":
+            (isHoveringActivity?"col-span-1":
+              (isHoveringStats?"col-span-1":
+                (isHoveringMap?"col-span-4 row-span-2":
+                (isHoveringPayments?"col-span-1":"col-span-2"))))}`}>
+            <div className="h-24"></div>
+        </li>
+        <li className={`rounded-lg bg-green-700
+          ${isHoveringFooter?"col-span-4 row-span-2":
+            (isHoveringActivity?"col-span-1":
+              (isHoveringStats?"col-span-1":
+                (isHoveringPayments?"col-span-1":"col-span-2")))}`}>
+            <div className="h-24"></div>
+        </li>
+      </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
       <div className= " h-96 bg-red-600 flex">
         <div 
           onMouseEnter={() => setIsHoveringActivity(true)} 
@@ -41,7 +101,7 @@ export default function Home() {
               ${isHoveringActivity?"w-1/2":(isHoveringBonus?"w-1/3":"w-2/3")}
             `}
           >
-            <Stats />
+            c
           </div>
           <div 
             onMouseEnter={() => setIsHoveringBonus(true)} 
@@ -83,6 +143,56 @@ export default function Home() {
           </div>
         </div>
       </div>
+
+      {/* Nina code */}
+      
+      <div className="w-full flex-row flex justify-between " >
+
+        <div className=" flex bg-yellow-400">
+          <Activity/>
+        </div>
+
+        <div className="">
+          <div id="uppersecond" className=" flex">
+            <Stats/>
+            <div 
+            className={`flex bg-blue-500
+              ${isHoveringFooter?"":"hidden"}
+            `}>
+              <Bonus/>
+            </div>
+            
+          </div>
+          <div id="lowersecond">
+            <Payments/>
+            <div 
+            className={`flex bg-green-600
+              ${isHoveringMap?"":"hidden"}
+            `}>
+              <DivOne/>
+            </div>
+          </div>
+        </div>
+        <div id="thirdcolumn" className="">
+             <div
+             className={`flex bg-green-600
+              ${isHoveringMap?"":"hidden"}
+            `}>
+              <Map/>
+             </div> 
+        </div>
+        <div id="fourthcolumn" className="">
+              <Bonus/>
+              <Footer/>
+        </div>
+        
+     
+      
+      
+
+
+      </div>
+
     </main>
   );
 }
