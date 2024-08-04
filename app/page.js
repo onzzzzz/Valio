@@ -23,7 +23,7 @@ export default function Home() {
   return (
     <main >
       <Navbar/>
-      <ul className="grid grid-cols-8 grid-rows-2 grid-flow-row">
+      {/* <ul className="grid grid-cols-8 grid-rows-2 grid-flow-row">
       <li className={`rounded-lg bg-yellow-500
           ${isHoveringActivity?"col-span-4 row-span-2":
             (isHoveringMap?"col-span-1 row-span-2":"col-span-2 row-span-2")}`}>
@@ -65,19 +65,9 @@ export default function Home() {
                 (isHoveringPayments?"col-span-1":"col-span-2")))}`}>
             <div className="h-24"></div>
         </li>
-      </ul>
+      </ul> */}
 
-
-
-
-
-
-
-
-
-
-
-
+      
 
 
 
@@ -134,8 +124,8 @@ export default function Home() {
           </div>
 
           <div 
-            onMouseEnter={() => setIsHoveringFooter(true)} 
-            onMouseLeave={() => setIsHoveringFooter(false)} 
+            // onMouseEnter={() => setIsHoveringFooter(true)} 
+            // onMouseLeave={() => setIsHoveringFooter(false)} 
             className={`flex bg-green-600
               ${isHoveringActivity?"w-1/4":(isHoveringPayments?"w-1/6":"w-1/3")}
             `}>
@@ -145,15 +135,125 @@ export default function Home() {
       </div>
 
       {/* Nina code */}
-      
-      <div className="w-full flex-row flex justify-between " >
 
-        <div className=" flex bg-yellow-400">
-          <Activity/>
+      <div id="parent" className="grid grid-cols-8 grid-rows-2 h-72 gap-9">
+        <div 
+          onMouseEnter={() => setIsHoveringActivity(true)} 
+          onMouseLeave={() => setIsHoveringActivity(false)} 
+        id="columnone" className={`
+           row-span-2 bg-pink-400
+          ${isHoveringMap?"col-span-1":
+            (isHoveringActivity?"col-span-4":"col-span-2")
+          }
+          `}>
+          one
         </div>
 
-        <div className="">
-          <div id="uppersecond" className=" flex">
+        <div id="columntwo" className={`
+          grid grid-cols-subgrid gap-y-9  row-span-2
+          ${isHoveringMap?"col-span-5 ": 
+            (isHoveringFooter?"col-span-1":
+              (isHoveringBonus?"col-span-2":
+                (isHoveringStats?"col-span-5":
+                  (isHoveringActivity?"col-span-2":"col-span-4")
+                )
+              )
+            )
+          }
+          `} >
+          <div 
+            onMouseEnter={() => setIsHoveringStats(true)} 
+            onMouseLeave={() => setIsHoveringStats(false)} 
+          className={`
+             bg-purple-500
+            ${isHoveringMap?"col-span-1 ":
+              (isHoveringStats?"row-span-2 col-span-4":"col-span-4 ")
+            }
+            `}>stats</div>
+          <div 
+            onMouseEnter={() => setIsHoveringPayments(true)} 
+            onMouseLeave={() => setIsHoveringPayments(false)} 
+          className={`
+             bg-red-500 col-start-1 row-start-2
+            ${isHoveringMap?" col-span-1":
+              (isHoveringPayments?"col-span-4":
+                (isHoveringStats?"col-start-5 col-span-1":
+                  (isHoveringActivity?"col-span-1":" col-span-2")
+                )
+              )
+            }
+            `}>payment</div>
+          <div 
+          onMouseEnter={() => setIsHoveringMap(true)} 
+          onMouseLeave={() => setIsHoveringMap(false)} 
+          className={`
+           bg-gray-500
+          ${isHoveringMap?"col-start-2 row-start-1 row-span-2 col-span-4":
+            (isHoveringFooter?"hidden":
+              (isHoveringBonus?"hidden":
+                (isHoveringPayments?"hidden":
+                  (isHoveringStats?"col-span-1 col-start-5":"col-start-3 row-start-2 row-span-1 col-span-2")
+                )
+              )
+            )
+          }
+          `}>map</div>
+        </div>
+
+        <div id="columnthree" className={`
+          grid grid-cols-subgrid   row-span-2 gap-y-9
+          ${isHoveringFooter?"col-span-5":
+            (isHoveringBonus?"col-span-4":
+              (isHoveringStats?"col-span-1":"col-span-2")
+            )
+           }
+          `}> 
+          <div 
+            onMouseEnter={() => setIsHoveringBonus(true)} 
+            onMouseLeave={() => setIsHoveringBonus(false)} 
+          className={`
+             row-span-1  bg-green-500
+            ${isHoveringFooter?"col-span-1":
+              (isHoveringBonus?"col-span-4":"col-span-2")
+            }
+            `}>bonus
+          </div>
+          
+          <div className={`
+            row-span-1  bg-pink-300
+            ${isHoveringFooter?"col-span-1":
+              (isHoveringBonus?"col-span-2":
+                (isHoveringPayments?"":"hidden")
+              )
+            }
+            `}>map2
+          </div>
+
+          <div 
+            onMouseEnter={() => setIsHoveringFooter(true)} 
+            onMouseLeave={() => setIsHoveringFooter(false)} 
+          className={`
+           bg-orange-200
+          ${isHoveringFooter?"col-span-4 row-span-2 row-start-1 col-start-2":
+            (isHoveringPayments?"col-span-1":"col-span-2 row-span-1")
+          }
+          `}>footer</div>
+          
+        </div>
+      </div>
+      
+      {/* <div className="w-full grid grid-flow-col grid-cols-4  h-screen " >
+
+        <div id="firstcolumn" 
+          onMouseEnter={() => setIsHoveringActivity(true)} 
+          onMouseLeave={() => setIsHoveringActivity(false)} 
+          
+          className="   shrink-1 bg-yellow-400">
+            <Activity/>
+        </div>
+
+        <div id="secondcolumn" className="">
+          <div id="uppersecond" className="   bg-orange-400">
             <Stats/>
             <div 
             className={`flex bg-blue-500
@@ -163,35 +263,75 @@ export default function Home() {
             </div>
             
           </div>
-          <div id="lowersecond">
+          <div id="lowersecond" className="row-span-2 bg-red-500  ">
             <Payments/>
             <div 
-            className={`flex bg-green-600
-              ${isHoveringMap?"":"hidden"}
+            className={`flex bg-green-600 
+              ${isHoveringMap?"hidden":
+                (isHoveringPayments?"hidden":
+                  (isHoveringBonus?"hidden":"w-1/2")
+                )}
+
             `}>
-              <DivOne/>
+              <Map/>
             </div>
           </div>
         </div>
-        <div id="thirdcolumn" className="">
-             <div
-             className={`flex bg-green-600
+        <div id="thirdcolumn" 
+             className={`flex bg-green-600 w-1/2
               ${isHoveringMap?"":"hidden"}
             `}>
               <Map/>
-             </div> 
+             
         </div>
-        <div id="fourthcolumn" className="">
+        <div id="fourthgrid" className= {` grid grid-cols-subgrid grid-flow-row col-end-4 bg-pink-400
+          ${isHoveringBonus?"grid-col-2":"grid-col-1"}
+          `} >
+          <div 
+            className={` bg-blue-300 
+              ${isHoveringFooter?"hidden":
+                (isHoveringBonus?"col-span-2":"col-span-1")
+              }
+            `}>
               <Bonus/>
-              <Footer/>
+            </div>
+
+            <div className=" hover:h-full bg-orange-500">
+            <div className={`
+              ${isHoveringPayments?"":
+                (isHoveringBonus?"":"hidden")}
+              `}>
+              <Map/>
+            </div>
+            <div 
+
+              className="  "
+               onMouseEnter={() => setIsHoveringFooter(true)} 
+               onMouseLeave={() => setIsHoveringFooter(false)} 
+
+              //  className={`
+              //   ${isHoveringFooter?""}
+              //   `}
+              >
+                 <Footer/>
+            </div>
+           
+          </div>
         </div>
+        {/* <div id="fourthcolumn" className="bg-green-800 w-1/4  h-full justify-between ">
+        
+          
+
+          
+          
+        </div> */}
         
      
       
       
 
 
-      </div>
+      {/* </div> */} 
 
     </main>
   );
