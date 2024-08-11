@@ -10,6 +10,7 @@ import Stats from "@/components/Stats";
 import DivOne from "@/components/DivOne";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { LayoutGroup } from "framer-motion"
 
 
 export default function Home() {
@@ -20,6 +21,7 @@ export default function Home() {
   const [isHoveringPayments, setIsHoveringPayments] = useState(false);
   const [isHoveringMap, setIsHoveringMap] = useState(false);
   const [isHoveringFooter, setIsHoveringFooter] = useState(false);
+  const time = 1 ;
 
   return (
     <main >
@@ -72,7 +74,7 @@ export default function Home() {
 
 
 
-
+{/* 
       <div className= " h-96 bg-red-600 flex">
         <div 
           onMouseEnter={() => setIsHoveringActivity(true)} 
@@ -133,123 +135,112 @@ export default function Home() {
             <Footer/>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* Nina code */}
 
-      <div id="parent" className="grid grid-cols-8 grid-rows-2 h-72 gap-3">
+
+      
+      <motion.div id="parent" 
+       layout layoutRoot
+      className="grid grid-cols-8 grid-rows-2 h-72  gap-1 bg-green-200 "
+      >
+
+
+
         <motion.div 
           onMouseEnter={() => setIsHoveringActivity(true)} 
           onMouseLeave={() => setIsHoveringActivity(false)} 
-          id="columnone" 
+          id="activity" 
           className={`
-            row-span-2 bg-pink-400 `}
+             bg-pink-400 `}
           layout
-          transition={{ duration: 0.3 }}
-          style={{ gridColumn: isHoveringActivity ? "span 4" : ( isHoveringMap ? "span 1": "span 2" )}}>
-          
+          transition={{ duration: time}}
+          style={{
+            gridColumnStart :  "1",  
+            gridColumnEnd : isHoveringMap ? "2" : "3" ,
+            gridColumn: isHoveringActivity ? "span 4" : ( isHoveringMap ? "span 1": "span 2" ),
+            gridRow : "span 2",
+            
+            
+          }}>
+          Activity
         </motion.div>
 
         <motion.div 
-          id="columntwo" 
-          className={` grid grid-cols-subgrid gap-y-9  row-span-2 `} 
+          className={` bg-purple-500 `} 
           layout
-          transition={{ duration: 0.3 }}
-          style={{ gridColumn: isHoveringActivity ? "span 2" : "span 4" }}>
-
-          {/* ${isHoveringMap?"col-span-5 ": 
-            (isHoveringFooter?"col-span-1":
-              (isHoveringBonus?"col-span-2":
-                (isHoveringStats?"col-span-5":
-                  (isHoveringActivity?"col-span-2":"col-span-4")
-                )
-              )
-            )
-          } */}
-
-          <motion.div 
+          transition={{ duration: time}}
+          style={{
+            // gridColumn : "span 4" ,
+            
+            gridColumnStart : isHoveringActivity ? "5" :  ( isHoveringMap ? "2" : "3"),
+            gridColumnEnd : isHoveringMap ? "3" : ( isHoveringBonus ? "5" : ( isHoveringFooter ? "4" : "7")) ,
+            gridRow : isHoveringStats ? "span 2" : "span 1",
+            
+          }}
             onMouseEnter={() => setIsHoveringStats(true)} 
-            onMouseLeave={() => setIsHoveringStats(false)} 
-            className={` bg-purple-500 `}
-            >
-              {/* ${isHoveringMap?"col-span-1 ":
-               (isHoveringStats?"row-span-2 col-span-4":"col-span-4 ")
-             } */}
-            stats 
-          </motion.div>
+          onMouseLeave={() => setIsHoveringStats(false)} 
+          >
+            
+          stats 
+        </motion.div>
 
           <motion.div 
             onMouseEnter={() => setIsHoveringPayments(true)} 
             onMouseLeave={() => setIsHoveringPayments(false)} 
-            className={` bg-red-500 col-start-1 row-start-2 `}
+            className={` bg-red-500   `}
             layout
-            transition={{ duration: 0.3 }}
-            style={{ gridColumn: isHoveringActivity ? "span 1" : "span 2" }}>
-              {/* ${isHoveringMap?" col-span-1":
-              (isHoveringPayments?"col-span-4":
-                (isHoveringStats?"col-start-5 col-span-1":
-                  (isHoveringActivity?"col-span-1":" col-span-2")
-                )
-              )
-            } */}
+            transition={{ duration: time }}
+            style={{ 
               
-              payment</motion.div>
+              gridColumnStart : isHoveringPayments ? "3" : ( isHoveringActivity ? "5" : ( isHoveringStats ? "7" : ( isHoveringMap ? "2" : "3") )) ,
+              gridColumnEnd : isHoveringPayments ? "7" : ( isHoveringActivity ? "7" : ( isHoveringStats ? "7" : ( isHoveringMap ? "3" : (isHoveringFooter ? "3" : "5")) )) , 
+              gridRowStart :  "2" ,
+             }}>
+             Payment
+          </motion.div>
 
           <motion.div 
           onMouseEnter={() => setIsHoveringMap(true)} 
           onMouseLeave={() => setIsHoveringMap(false)} 
           className={`bg-gray-500
-          
           `}
           layout
-          transition={{ duration: 0.3 }}
+          transition={{ duration: time }}
           style={{ 
-            gridColumn: isHoveringMap ? "span 4" : ( isHoveringStats ? "span 1": "span 2"),
-            gridColumnStart : isHoveringMap ? "2" : ( isHoveringStats ? "5": "3"),
-            gridRowStart : isHoveringMap ? "1" : "2",  
-            gridRow : isHoveringMap ? "span 2" : "span 1",  
-            display: isHoveringFooter ? "none" : ( isHoveringBonus ? "none" : ( isHoveringPayments ? "none" : "" )) 
+            
+            gridColumnStart : isHoveringMap ? "3" : ( isHoveringActivity ? "7" : ( isHoveringStats ? "7" : ( isHoveringPayments ? "7" : (isHoveringFooter ? "4" : "5")))),
+            gridColumnEnd : isHoveringMap ? "7" : ( isHoveringActivity ? "8" : ( isHoveringStats ? "7" : ( isHoveringPayments ? "8" : ( isHoveringFooter ? "5" : "7")))),  
+            gridRowStart : isHoveringMap ? "1" : ( isHoveringStats ? "1" : "2"),
+            gridRowEnd : isHoveringMap ? "3" : ( isHoveringStats ? "1" : "2"),
+            
           }}>
           map
           </motion.div>
-        </motion.div>
+       
 
-        <motion.div id="columnthree" className={`
-          grid grid-cols-subgrid   row-span-2 gap-y-9
-          
-          `}> 
-          {/* ${isHoveringFooter?"col-span-5":
-            (isHoveringBonus?"col-span-4":
-              (isHoveringStats?"col-span-1":"col-span-2")
-            )
-           } */}
+        
 
           <motion.div 
             onMouseEnter={() => setIsHoveringBonus(true)} 
             onMouseLeave={() => setIsHoveringBonus(false)} 
           className={`
-             row-span-1  bg-green-500
-           
-            `}>
-               {/* ${isHoveringFooter?"col-span-1":
-              (isHoveringBonus?"col-span-4":"col-span-2")
-            } */}
-              
+              bg-green-500
+           `}
+               
+          layout
+          transition={{ duration: time }}
+          style={{ 
+            gridColumnStart: isHoveringBonus ? "5" : ( isHoveringStats ? "8" : ( isHoveringFooter ? "4": "7")) ,
+            gridColumnEnd :   isHoveringFooter ? "5": "9" ,
+            
+            
+          }}  >
               bonus
           </motion.div>
           
-          <motion.div className={`
-            row-span-1  bg-pink-300
-            
-            `}>
-              {/* ${isHoveringFooter?"col-span-1":
-              (isHoveringBonus?"col-span-2":
-                (isHoveringPayments?"":"hidden")
-              )
-            } */}
-              
-              map2
-          </motion.div>
+          
 
           <motion.div 
             onMouseEnter={() => setIsHoveringFooter(true)} 
@@ -258,98 +249,25 @@ export default function Home() {
            bg-orange-200
           
           `}
-          // ${isHoveringFooter?"col-span-4 row-span-2 row-start-1 col-start-2":
-          //   (isHoveringPayments?"col-span-1":"col-span-2 row-span-1")
-          // }
           
-          >footer</motion.div>
-          
-        </motion.div>
-      </div>
-      
-      {/* <div className="w-full grid grid-flow-col grid-cols-4  h-screen " >
-
-        <div id="firstcolumn" 
-          onMouseEnter={() => setIsHoveringActivity(true)} 
-          onMouseLeave={() => setIsHoveringActivity(false)} 
-          
-          className="   shrink-1 bg-yellow-400">
-            <Activity/>
-        </div>
-
-        <div id="secondcolumn" className="">
-          <div id="uppersecond" className="   bg-orange-400">
-            <Stats/>
-            <div 
-            className={`flex bg-blue-500
-              ${isHoveringFooter?"":"hidden"}
-            `}>
-              <Bonus/>
-            </div>
+          layout
+          transition={{ duration: time}}
+          style={{ 
+            gridColumnStart: isHoveringFooter ? "5" : ( isHoveringPayments ? "8" : ( isHoveringActivity ? "8": (isHoveringStats ? "8": "7"))) ,
+            gridColumnEnd :   isHoveringFooter ? "9": "9" ,
+            gridRowStart : isHoveringFooter ? "1" : "2" ,
+            gridRowEnd : isHoveringMap ? "3" : "3",
             
-          </div>
-          <div id="lowersecond" className="row-span-2 bg-red-500  ">
-            <Payments/>
-            <div 
-            className={`flex bg-green-600 
-              ${isHoveringMap?"hidden":
-                (isHoveringPayments?"hidden":
-                  (isHoveringBonus?"hidden":"w-1/2")
-                )}
-
-            `}>
-              <Map/>
-            </div>
-          </div>
-        </div>
-        <div id="thirdcolumn" 
-             className={`flex bg-green-600 w-1/2
-              ${isHoveringMap?"":"hidden"}
-            `}>
-              <Map/>
-             
-        </div>
-        <div id="fourthgrid" className= {` grid grid-cols-subgrid grid-flow-row col-end-4 bg-pink-400
-          ${isHoveringBonus?"grid-col-2":"grid-col-1"}
-          `} >
-          <div 
-            className={` bg-blue-300 
-              ${isHoveringFooter?"hidden":
-                (isHoveringBonus?"col-span-2":"col-span-1")
-              }
-            `}>
-              <Bonus/>
-            </div>
-
-            <div className=" hover:h-full bg-orange-500">
-            <div className={`
-              ${isHoveringPayments?"":
-                (isHoveringBonus?"":"hidden")}
-              `}>
-              <Map/>
-            </div>
-            <div 
-
-              className="  "
-               onMouseEnter={() => setIsHoveringFooter(true)} 
-               onMouseLeave={() => setIsHoveringFooter(false)} 
-
-              //  className={`
-              //   ${isHoveringFooter?""}
-              //   `}
-              >
-                 <Footer/>
-            </div>
-           
-          </div>
-        </div>
-        {/* <div id="fourthcolumn" className="bg-green-800 w-1/4  h-full justify-between ">
+            
+          }}
+          >footer
+          </motion.div>
+          
         
-          
-
-          
-          
-        </div> */}
+      </motion.div>
+      
+      
+      
         
       
 
