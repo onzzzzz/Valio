@@ -1,9 +1,19 @@
-import React from 'react'
+import BarChart from './UI/BarChart';
+import ExpenceChart from './UI/ExpenceChart';
+import ExpenceChartArray from './UI/ExpenceChartArray';
+
 
 function Stats() {
+  
   return (
-    <div >Stats</div>
+    <div>
+      {/* <ExpenceChart /> */}
+      <ExpenceChartArray />
+      {/* <BarChart /> */}
+      <h1>Hello</h1>
+    </div>
   )
 }
 
-export default Stats
+export default Stats;
+

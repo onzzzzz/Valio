@@ -6,6 +6,14 @@ module.exports = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    colors: {
+      'darkest-green': '#29312e',
+      'dark-green': '#56615d',
+      'green': '#7d8c79',
+      'light-green-background': '#c4cebc',
+      'beige-background': '#e7e7df',
+      'earthy-background': '#bebcb7',
+    },
     extend: {
       gridTemplateColumns: {
         'custom-1': '1fr 1fr 1fr',

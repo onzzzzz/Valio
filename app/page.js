@@ -11,6 +11,7 @@ import DivOne from "@/components/DivOne";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { LayoutGroup } from "framer-motion"
+import Image from 'next/image';
 
 
 export default function Home() {
@@ -24,8 +25,11 @@ export default function Home() {
   const time = 1 ;
 
   return (
-    <main >
+    <main 
+    className=" h-svh w-svw flex flex-col justify-center items-center bg-light-green-background "
+    >
       <Navbar/>
+
       {/* <ul className="grid grid-cols-8 grid-rows-2 grid-flow-row">
       <li className={`rounded-lg bg-yellow-500
           ${isHoveringActivity?"col-span-4 row-span-2":
@@ -142,18 +146,14 @@ export default function Home() {
 
       
       <motion.div id="parent" 
-       layout layoutRoot
-      className="grid grid-cols-8 grid-rows-2 h-72  gap-1 bg-green-200 "
+        layout layoutRoot
+        className="grid grid-cols-8 grid-rows-2 h-5/6 w-5/6 gap-2 "
       >
-
-
-
         <motion.div 
           onMouseEnter={() => setIsHoveringActivity(true)} 
           onMouseLeave={() => setIsHoveringActivity(false)} 
           id="activity" 
-          className={`
-             bg-pink-400 `}
+          className="bento" 
           layout
           transition={{ duration: time}}
           style={{
@@ -161,14 +161,12 @@ export default function Home() {
             gridColumnEnd : isHoveringMap ? "2" : "3" ,
             gridColumn: isHoveringActivity ? "span 4" : ( isHoveringMap ? "span 1": "span 2" ),
             gridRow : "span 2",
-            
-            
           }}>
-          Activity
+          <Activity/>
         </motion.div>
 
         <motion.div 
-          className={` bg-purple-500 `} 
+          className="bento" 
           layout
           transition={{ duration: time}}
           style={{
@@ -179,17 +177,17 @@ export default function Home() {
             gridRow : isHoveringStats ? "span 2" : "span 1",
             
           }}
-            onMouseEnter={() => setIsHoveringStats(true)} 
+          onMouseEnter={() => setIsHoveringStats(true)} 
           onMouseLeave={() => setIsHoveringStats(false)} 
           >
             
-          stats 
+          <Stats/>
         </motion.div>
 
           <motion.div 
             onMouseEnter={() => setIsHoveringPayments(true)} 
             onMouseLeave={() => setIsHoveringPayments(false)} 
-            className={` bg-red-500   `}
+            className="bento" 
             layout
             transition={{ duration: time }}
             style={{ 
@@ -198,14 +196,13 @@ export default function Home() {
               gridColumnEnd : isHoveringPayments ? "7" : ( isHoveringActivity ? "7" : ( isHoveringStats ? "7" : ( isHoveringMap ? "3" : (isHoveringFooter ? "3" : "5")) )) , 
               gridRowStart :  "2" ,
              }}>
-             Payment
+             <Payments isHoveringPayments={isHoveringPayments}/>
           </motion.div>
 
           <motion.div 
           onMouseEnter={() => setIsHoveringMap(true)} 
           onMouseLeave={() => setIsHoveringMap(false)} 
-          className={`bg-gray-500
-          `}
+          className="bento flex justify-center items-center overflow-hidden " 
           layout
           transition={{ duration: time }}
           style={{ 
@@ -216,7 +213,7 @@ export default function Home() {
             gridRowEnd : isHoveringMap ? "3" : ( isHoveringStats ? "1" : "2"),
             
           }}>
-          map
+          <Map />
           </motion.div>
        
 
@@ -225,9 +222,7 @@ export default function Home() {
           <motion.div 
             onMouseEnter={() => setIsHoveringBonus(true)} 
             onMouseLeave={() => setIsHoveringBonus(false)} 
-          className={`
-              bg-green-500
-           `}
+            className="bento" 
                
           layout
           transition={{ duration: time }}
@@ -245,10 +240,7 @@ export default function Home() {
           <motion.div 
             onMouseEnter={() => setIsHoveringFooter(true)} 
             onMouseLeave={() => setIsHoveringFooter(false)} 
-          className={`
-           bg-orange-200
-          
-          `}
+            className="bento" 
           
           layout
           transition={{ duration: time}}

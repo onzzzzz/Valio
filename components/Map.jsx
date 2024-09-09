@@ -1,9 +1,13 @@
 import React from 'react'
+import GoogleMapComp from './GoogleMap'
 
 function Map() {
   return (
-    <div >Map</div>
+    <div className=' '>
+      <GoogleMapComp/>
+    </div>
   )
 }
 
 export default Map
+
