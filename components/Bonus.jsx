@@ -1,8 +1,15 @@
-import React from 'react'
+import Image from 'next/image'
 
 function Bonus() {
   return (
-    <div >bonus</div>
+    <div className=''>
+      <Image
+      src="/cashback.png"
+      width={300}
+      height={300}
+      alt="Cash Back"
+      />
+    </div>
   )
 }
 

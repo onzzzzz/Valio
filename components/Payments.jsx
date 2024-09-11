@@ -23,9 +23,7 @@ const payments = useContext({isHoveringPayments})
           </tr>
           </tbody>
         </table>
-        ) : ( <h1 className="flex justify-center">
-          Upcoming Payments
-        </h1>) 
+        ) : ( <h1 className="flex justify-center font-lora text-2xl text-dark-green pt-1 ">Upcoming Payments</h1>) 
       }
       
     </div>

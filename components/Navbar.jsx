@@ -2,7 +2,7 @@ import React from 'react'
 
 function Navbar() {
   return (
-    <div>Navbar</div>
+    <h1 className='font-lora text-6xl text-dark-green pb-2 '>Valio</h1> 
   )
 }
 

@@ -1,14 +1,14 @@
 import BarChart from './UI/BarChart';
-import ExpenceChart from './UI/ExpenceChart';
+import ExpenceChartSix from './UI/ExpenceChartSix';
 import ExpenceChartArray from './UI/ExpenceChartArray';
 
 
 function Stats() {
   
   return (
-    <div>
-      {/* <ExpenceChart /> */}
-      <ExpenceChartArray />
+    <div className='w-4/5'>
+      <ExpenceChartSix />
+      {/* <ExpenceChartArray /> */}
       {/* <BarChart /> */}
       <h1>Hello</h1>
     </div>

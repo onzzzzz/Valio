@@ -4,8 +4,12 @@
 
 @layer utilities {
     .bento {
-      @apply bg-beige-background rounded-2xl;
+      @apply bg-beige-background rounded-2xl overflow-hidden;
     }
+    .center {
+      @apply flex justify-center items-center;
+    }
+
   }
 
 

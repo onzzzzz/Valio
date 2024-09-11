@@ -19,7 +19,7 @@ function Activity(isHoveringActivity) {
 
   return (
     <div className="h-full overflow-hidden hover:overflow-auto">
-      <h1>Activity</h1>
+      <h1 className="flex justify-center font-lora text-2xl text-dark-green pt-1 ">Activity</h1>
       <ActivityItem allActivity={allActivity}/>
     </div>
   )

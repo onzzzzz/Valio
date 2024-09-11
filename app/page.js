@@ -202,7 +202,7 @@ export default function Home() {
           <motion.div 
           onMouseEnter={() => setIsHoveringMap(true)} 
           onMouseLeave={() => setIsHoveringMap(false)} 
-          className="bento flex justify-center items-center overflow-hidden " 
+          className="bento center" 
           layout
           transition={{ duration: time }}
           style={{ 
@@ -222,7 +222,7 @@ export default function Home() {
           <motion.div 
             onMouseEnter={() => setIsHoveringBonus(true)} 
             onMouseLeave={() => setIsHoveringBonus(false)} 
-            className="bento" 
+            className="bento center" 
                
           layout
           transition={{ duration: time }}
@@ -232,7 +232,7 @@ export default function Home() {
             
             
           }}  >
-              bonus
+            <Bonus />
           </motion.div>
           
           

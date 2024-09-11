@@ -13,14 +13,17 @@ module.exports = {
       'light-green-background': '#c4cebc',
       'beige-background': '#e7e7df',
       'earthy-background': '#bebcb7',
+      'semantic-red': '#E8858A',
     },
     extend: {
       gridTemplateColumns: {
         'custom-1': '1fr 1fr 1fr',
         'custom-2': '0.5fr 2fr 0.5fr',
         'custom-3': '0.5fr 0.5fr 2fr',
-      }
-      
+      },
+      fontFamily: {
+        'lora': ['"Lora"', 'serif'],
+      },
     },
   },
   plugins: [],
