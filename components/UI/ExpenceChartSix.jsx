@@ -123,7 +123,7 @@ const ExpenseChart = () => {
   useEffect(() => {
     const fetchCategoryRent = async () => {
       try {
-        const response = await fetch(`http://localhost:3000/api/category/rent`);
+        const response = await fetch(`/api/category/rent`);
         const data = await response.json();
         setCategoryRent(data);
         sethaveData(true);
@@ -145,7 +145,7 @@ const ExpenseChart = () => {
   useEffect(() => {
     const fetchCategoryMiscellaneous = async () => {
       try {
-        const response = await fetch(`http://valio.vercel.app/api/category/misc`);
+        const response = await fetch(`/api/category/misc`);
         const data = await response.json();
         setCategoryMiscellaneous(data);
         sethaveData(true);

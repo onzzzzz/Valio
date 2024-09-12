@@ -7,7 +7,7 @@ function Activity(isHoveringActivity) {
   const [allActivity , setAllActivity] = useState([]);
 
     const fetchActivity = async () => {
-        const response = await fetch("http://localhost:3000/api");
+        const response = await fetch("/api");
         const data = await response.json();
 
         setAllActivity(data);
