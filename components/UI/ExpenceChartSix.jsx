@@ -35,7 +35,7 @@ const ExpenseChart = () => {
   useEffect(() => {
     const fetchCategoryData = async () => {
       try {
-        const response = await fetch(`http://localhost:3000/api/category/restaurant`);
+        const response = await fetch(`/api/category/restaurant`);
         const data = await response.json();
         setCategoryRestaurant(data);
         sethaveData(true);
@@ -57,7 +57,7 @@ const ExpenseChart = () => {
   useEffect(() => {
     const fetchCategoryRetail = async () => {
       try {
-        const response = await fetch(`http://localhost:3000/api/category/retail`);
+        const response = await fetch(`/api/category/retail`);
         const data = await response.json();
         setCategoryRetail(data);
         sethaveData(true);
@@ -79,7 +79,7 @@ const ExpenseChart = () => {
     useEffect(() => {
       const fetchCategoryEntertainment = async () => {
         try {
-          const response = await fetch(`http://localhost:3000/api/category/entertainment`);
+          const response = await fetch(`/api/category/entertainment`);
           const data = await response.json();
           setCategoryEntertainment(data);
           sethaveData(true);
@@ -101,7 +101,7 @@ const ExpenseChart = () => {
     useEffect(() => {
       const fetchCategorySupermarket = async () => {
         try {
-          const response = await fetch(`http://localhost:3000/api/category/supermarket`);
+          const response = await fetch(`/api/category/supermarket`);
           const data = await response.json();
           setCategorySupermarket(data);
           sethaveData(true);
@@ -145,7 +145,7 @@ const ExpenseChart = () => {
   useEffect(() => {
     const fetchCategoryMiscellaneous = async () => {
       try {
-        const response = await fetch(`http://localhost:3000/api/category/misc`);
+        const response = await fetch(`http://valio.vercel.app/api/category/misc`);
         const data = await response.json();
         setCategoryMiscellaneous(data);
         sethaveData(true);
