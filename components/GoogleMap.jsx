@@ -17,8 +17,6 @@ const GoogleMapComp = () => {
     googleMapsApiKey: process.env.GOOGLE_MAPS_API
   })
 
-  console.log("lat:", center.lat)
-
   const [map, setMap] = React.useState(null)
 
   const onLoad = React.useCallback(function callback(map) {
